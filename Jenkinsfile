@@ -8,8 +8,9 @@ pipeline {
             }
         }
         stage('Push') {
+            withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')])
             steps {
-                sh 'docker login -u "mgreg64" -p "GRGmsm1964!"'
+                sh 'docker login -u $USER_NAME -p PASSWORD'
                 sh 'docker push mgreg64/pipeline-1:latest'
             }
         }
