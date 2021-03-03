@@ -10,8 +10,9 @@ pipeline {
         stage('Push') {
             
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')])
-                sh 'docker login -u $USER_NAME -p PASSWORD'
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'PASSWORD', usernameVariable: 'USER_NAME')]) {
+                    sh 'docker login -u $USER_NAME -p PASSWORD'
+                }
                 sh 'docker push mgreg64/pipeline-1:latest'
             }
         }
