@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Push') {
             steps {
-                sh 'docker push pipeline-1_app:latest'
+                sh 'docker push mgreg64/pipeline-1:latest'
             }
         }
         stage('Test') {
