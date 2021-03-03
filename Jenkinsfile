@@ -7,6 +7,11 @@ pipeline {
                 sh 'docker-compose build'
             }
         }
+        stage('Push') {
+            steps {
+                sh 'docker push pipeline-1_app:latest'
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
