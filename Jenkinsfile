@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python3 main.py'
+                sh 'docker-compose up --build'
             }
         }
         stage('Test') {
