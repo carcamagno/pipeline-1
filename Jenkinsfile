@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'docker pull mgreg64/pipeline-1:latest'
             }
         }
         stage('Deploy') {
